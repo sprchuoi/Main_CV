@@ -1,2 +1,2 @@
-# my_cv
-just my CV
+# My CV
+Le Thien Trung
