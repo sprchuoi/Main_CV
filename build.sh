@@ -8,8 +8,8 @@ killall python
 
 # Getting stuff
 echo "Setting up..."
-sh -c "python -m http.server 80" & echo "Done HTTP Server"
-sh -c "ngrok http 80" & echo "Done Ngrok"
+sh -c "python -m http.server 8000" & echo "Running HTTP Server"
+sh -c "./ngrok http 8000" & echo "Running Ngrok"
 sleep 5
 echo "\nFinished setting up!\n"
 echo "Getting PDF file."
