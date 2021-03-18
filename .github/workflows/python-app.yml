@@ -32,11 +32,11 @@ jobs:
           chmod +x build.sh
           sh build.sh
       - name: Publish to Release page
-        uses: "marvinpinto/action-automatic-releases@latest"
+        uses: "marvinpinto/action-automatic-releases@1.1.0"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
-          prerelease: true
+          prerelease: false
           title: "Latest build"
           files: |
             *.pdf
