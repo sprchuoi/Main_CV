@@ -5,39 +5,38 @@ name: Deploy PDF file to Release
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.9
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Install Ngrok
-      run: |
-        wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-        unzip -qq ngrok-stable-linux-amd64.zip
-        ./ngrok authtoken ${{ secrets.ngrok_token }}
-    - name: Build PDF file
-      run: |
-        chmod +x build.sh
-        sh build.sh
-    - name: Publish to Release page
-    - uses: "marvinpinto/action-automatic-releases@latest"
-      with:
-        repo_token: "${{ secrets.GITHUB_TOKEN }}"
-        automatic_release_tag: "latest"
-        prerelease: true
-        title: "Latest build"
-        files: |
-          *.pdf
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install Ngrok
+        run: |
+          wget "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
+          unzip -qq ngrok-stable-linux-amd64.zip
+          ./ngrok authtoken ${{ secrets.ngrok_token }}
+      - name: Build PDF file
+        run: |
+          chmod +x build.sh
+          sh build.sh
+      - name: Publish to Release page
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Latest build"
+          files: |
+            *.pdf
