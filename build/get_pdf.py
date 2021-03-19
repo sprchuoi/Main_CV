@@ -3,7 +3,7 @@ import requests
 
 # default_url = "https://jackblk.github.io/my_cv"
 response_tunnel = requests.get("http://localhost:4040/api/tunnels").json()
-url_tunnel = response_tunnel["tunnels"][0]["public_url"]
+url_tunnel = response_tunnel["tunnels"][0]["public_url"] + "/docs/"
 print(f"\nURL Tunnel is: '{url_tunnel}'.")
 url = (
     "https://www.web2pdfconvert.com/convert/web/to/pdf?storefile=true&"
