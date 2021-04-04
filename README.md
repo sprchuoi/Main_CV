@@ -8,3 +8,4 @@ Web page CV is lovely, responsive for both desktop & mobile, but it is not PDF, 
 
 ## Credits
 * Designed by [Xiaoying Riley](https://github.com/xriley/DevResume-Theme). Thank you!
+* Fork from my friend's repo [Trung Le](https://github.com/jackblk). Thank bro, for the amazing CV's concept.
