@@ -1,5 +1,5 @@
 # Prepare
-file="LeThienTrung_CV.pdf"
+file="NguyenKiemHung_CV.pdf"
 if [ -f "$file" ] ; then
     rm "$file"
 fi
