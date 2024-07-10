@@ -14,7 +14,7 @@ echo "Waiting for 5 seconds." && sleep 5
 echo "\nFinished setting up!\n"
 echo "Getting PDF file."
 # python build/get_via_htmltopdf.py
-python docs/convert_docx2pdf.py
+#python docs/convert_docx2pdf.py
 
 # Clean up
 killall python
