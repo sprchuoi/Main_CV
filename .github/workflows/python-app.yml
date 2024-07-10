@@ -43,3 +43,10 @@ jobs:
           title: "Latest build"
           files: |
             NguyenKiemHung_CV.pdf
+      
+      - name: Copy file to release assets
+        uses: softprops/action-gh-release@v2
+        if: "latest"
+        with:
+          files: |
+            NguyenKiemHung_CV.pdf
