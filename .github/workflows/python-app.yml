@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            NguyenKiemHung_CV.md
+            NguyenKiemHung_CV.pdf
           sparse-checkout-cone-mode: false
 
       - name: Publish to Release page
