@@ -33,6 +33,11 @@ jobs:
         run: |
           chmod +x build/build.sh
           sh build/build.sh
+      - name: Copy artifacts to release page
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            NguyenKiemHung_CV.pdf
       - name: Publish to Release page
         uses: marvinpinto/action-automatic-releases@latest
         with:
