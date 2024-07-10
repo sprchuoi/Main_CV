@@ -29,17 +29,20 @@ jobs:
           wget "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
           tar -xvzf ngrok-v3-stable-linux-amd64.tgz
           ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
-      - name: Build PDF file
-        run: |
-          chmod +x build/build.sh
-          sh build/build.sh
 
       - name: check out file
         uses: actions/checkout@v4
         with:
           sparse-checkout: |
-            NguyenKiemHung_CV.pdf
-          sparse-checkout-cone-mode: false
+            CV_Local.pdf
+          sparse-checkout-cone-mode: false  
+
+      - name: Build PDF file
+        run: |
+          chmod +x build/build.sh
+          sh build/build.sh
+
+
 
       - name: Publish to Release page
         uses: marvinpinto/action-automatic-releases@latest
