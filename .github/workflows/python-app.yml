@@ -46,7 +46,7 @@ jobs:
       
       - name: Copy file to release assets
         uses: softprops/action-gh-release@v2
-        if: "latest"
+        if: startsWith(github.ref, 'latest')
         with:
           files: |
             NguyenKiemHung_CV.pdf
