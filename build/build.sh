@@ -17,7 +17,7 @@ echo "Getting PDF file."
 python build/get_via_htmltopdf.py
 #python docs/convert_docx2pdf.py
 
-abiword --to=pdf $inputfile
+# abiword --to=pdf $inputfile
 
 # Clean up
 killall python

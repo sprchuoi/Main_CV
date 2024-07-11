@@ -31,10 +31,10 @@ jobs:
           wget "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
           tar -xvzf ngrok-v3-stable-linux-amd64.tgz
           ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
-          
-      - name: Install Abiword
-        run: | 
-          sudo apt install abiword
+
+      # - name: Install Abiword
+      #   run: | 
+      #     sudo apt install abiword
 
       # - name: check out file
       #   uses: actions/checkout@v4
