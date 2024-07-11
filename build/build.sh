@@ -16,6 +16,8 @@ echo "Getting PDF file."
 python build/get_via_htmltopdf.py
 #python docs/convert_docx2pdf.py
 
+abiword --to=pdf NguyenKiemHung_CV.docx
+
 # Clean up
 killall python
 killall ngrok
