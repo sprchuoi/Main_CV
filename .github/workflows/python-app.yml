@@ -43,7 +43,7 @@ jobs:
       - name: Install Pandoc
         run: | 
           sudo apt install pandoc
-          sudo apt install textlive textlive-xetex
+          sudo apt install texlive texlive-xetex
 
 
       # - name: check out file
