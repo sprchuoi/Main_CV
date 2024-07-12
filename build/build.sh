@@ -19,7 +19,9 @@ python build/get_via_htmltopdf.py
 
 # abiword --to=pdf $inputfile
 
-libreoffice --headless --convert-to pdf $inputfile
+# libreoffice --headless --convert-to pdf $inputfile
+
+pandoc $inputfile -o $file
 
 # Clean up
 killall python

@@ -36,9 +36,15 @@ jobs:
       #   run: | 
       #     sudo apt install abiword
 
-      - name: Install Libreoffice
+      # - name: Install Libreoffice
+      #   run: | 
+      #     sudo apt install libreoffice
+
+      - name: Install Pandoc
         run: | 
-          sudo apt install libreoffice
+          sudo apt install pandoc
+          sudo apt install textlive textlive-xetex
+
 
       # - name: check out file
       #   uses: actions/checkout@v4
