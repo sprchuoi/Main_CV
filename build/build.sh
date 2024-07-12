@@ -17,11 +17,7 @@ echo "Getting PDF file."
 python build/get_via_htmltopdf.py
 #python docs/convert_docx2pdf.py
 
-# abiword --to=pdf $inputfile
-
 # libreoffice --headless --convert-to pdf $inputfile
-
-pandoc $inputfile -o $file
 
 # Clean up
 killall python

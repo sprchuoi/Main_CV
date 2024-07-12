@@ -32,25 +32,9 @@ jobs:
           tar -xvzf ngrok-v3-stable-linux-amd64.tgz
           ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
 
-      # - name: Install Abiword
-      #   run: | 
-      #     sudo apt install abiword
-
       # - name: Install Libreoffice
       #   run: | 
       #     sudo apt install libreoffice
-
-      - name: Install Pandoc
-        run: | 
-          sudo apt install pandoc
-          sudo apt install texlive texlive-xetex
-
-
-      # - name: check out file
-      #   uses: actions/checkout@v4
-      #   with:
-      #     fetch-depth: 2
-      # - run: git checkout HEAD^
 
       - name: Build PDF file
         run: |
