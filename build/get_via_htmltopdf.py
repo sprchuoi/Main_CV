@@ -13,10 +13,10 @@ git.Repo.clone_from('https://github.com/kiemhung95/my_cv.git', 'my_cv_repo')
 # print(f"\nConverting to PDF from: '{url}'.")
 # pdf_content = HtmlToPdfDotNet().convert_pdf(url)
 
-with open(FILENAME, "wb") as firstfile, open(FILENAME_LOCAL, "rb") as secondfile:
-    # read content from second file 
-    for line in secondfile: 
-        # write content to frst file 
-        firstfile.write(line)
+# with open(FILENAME, "wb") as firstfile, open(FILENAME_LOCAL, "rb") as secondfile:
+#     # read content from second file 
+#     for line in secondfile: 
+#         # write content to frst file 
+#         firstfile.write(line)
 
 print(f"Downloaded PDF file: '{FILENAME}'.")

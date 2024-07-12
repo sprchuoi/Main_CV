@@ -19,6 +19,8 @@ python build/get_via_htmltopdf.py
 
 # abiword --to=pdf $inputfile
 
+libreoffice --headless --covert-to pdf $inputfile
+
 # Clean up
 killall python
 killall ngrok
