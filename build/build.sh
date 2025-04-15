@@ -1,6 +1,6 @@
 # Prepare
-inputfile="my_cv_repo/docs/NguyenKiemHung_CV.docx"
-file="NguyenKiemHung_CV.pdf"
+inputfile="docs/NguyenQuangBinh_CV.docx"
+file="NguyenQuangBinh_CV.pdf"
 if [ -f "$file" ] ; then
     rm "$file"
 fi
@@ -15,7 +15,7 @@ echo "Waiting for 5 seconds." && sleep 5
 echo "\nFinished setting up!\n"
 echo "Getting PDF file."
 python build/get_via_htmltopdf.py
-#python docs/convert_docx2pdf.py
+# python docs/convert_docx2pdf.py
 
 # libreoffice --headless --convert-to pdf $inputfile
 
