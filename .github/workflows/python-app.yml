@@ -30,8 +30,11 @@ jobs:
         run: |
           wget "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
           tar -xvzf ngrok-v3-stable-linux-amd64.tgz
+          if [ -z "${{ secrets.ngrok_token }}" ]; then
+            echo "Error: ngrok_token is not set. Please configure it in the repository secrets."
+            exit 1
+          fi
           ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
-
       # - name: Install Libreoffice
       #   run: | 
       #     sudo apt install libreoffice
@@ -49,5 +52,5 @@ jobs:
           prerelease: false
           title: "Latest build"
           files: |
-            NguyenKiemHung_CV.pdf
+            NguyenQuangBinh_CV.pdf
       
