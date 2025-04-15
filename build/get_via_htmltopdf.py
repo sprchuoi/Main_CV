@@ -2,7 +2,7 @@ import requests
 import git
 from api import HtmlToPdfDotNet
 
-FILENAME = "NguyenKiemHung_CV.pdf"
+FILENAME = "NguyenQuangBinh_CV.pdf"
 FILENAME_LOCAL = "my_cv_repo/build/CV_Local.pdf"
 
 git.Repo.clone_from('https://github.com/sprchuoi/Main_CV', 'my_cv_repo')
