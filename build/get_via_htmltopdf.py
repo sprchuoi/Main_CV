@@ -3,9 +3,9 @@ import git
 from api import HtmlToPdfDotNet
 
 FILENAME = "NguyenQuangBinh_CV.pdf"
-FILENAME_LOCAL = "my_cv_repo/build/CV_Local.pdf"
+FILENAME_LOCAL = "MAIN_CV/build/CV_Local.pdf"
 
-git.Repo.clone_from('https://github.com/sprchuoi/Main_CV.git', 'my_cv_repo')
+git.Repo.clone_from('https://github.com/sprchuoi/Main_CV.git', 'MAIN_CV')
 response_tunnel = requests.get("http://localhost:4040/api/tunnels").json()
 url = response_tunnel["tunnels"][0]["public_url"] + "/docs/"
 print(f"\nURL Tunnel is: '{url}'.")
