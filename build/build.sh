@@ -1,5 +1,5 @@
 # Prepare
-inputfile="docs/NguyenQuangBinh_CV.docx"
+inputfile="MAIN_CV/docs/NguyenQuangBinh_CV.docx"
 file="NguyenQuangBinh_CV.pdf"
 if [ -f "$file" ] ; then
     rm "$file"
