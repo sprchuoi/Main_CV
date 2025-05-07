@@ -1,4 +1,4 @@
-name: Deploy PDF file to Release
+name: Build and Deploy CV
 
 on:
   push:
@@ -6,16 +6,18 @@ on:
     paths:
       - "docs/**"
       - "build/**"
+      - "**/*.md"
+      - "**/*.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
@@ -39,6 +41,29 @@ jobs:
           chmod +x build/build.sh
           sh build/build.sh
 
+      - name: Verify HTML content
+        run: |
+          if [ ! -f "docs/index.html" ]; then
+            echo "Error: index.html not found in docs directory"
+            exit 1
+          fi
+          if [ ! -f "docs/assets/css/devresume.css" ]; then
+            echo "Error: devresume.css not found in docs/assets/css directory"
+            exit 1
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: docs/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
       - name: Publish to Release page
         uses: marvinpinto/action-automatic-releases@latest
         with:
@@ -59,7 +84,7 @@ jobs:
               ref: context.ref,
               required_contexts: [],
               environment: "release",
-              description: "Deployed PDF to GitHub Releases",
+              description: "Deployed CV to GitHub Pages and Releases",
               auto_merge: false
             });
 
@@ -68,8 +93,8 @@ jobs:
               repo: context.repo.repo,
               deployment_id: deployment.data.id,
               state: "success",
-              log_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/releases/tag/latest`,
-              environment_url: `https://github.com/${context.repo.owner}/${context.repo.repo}/releases/tag/latest`,
-              description: "PDF available on Release page"
+              log_url: `https://${context.repo.owner}.github.io/${context.repo.repo}`,
+              environment_url: `https://${context.repo.owner}.github.io/${context.repo.repo}`,
+              description: "CV available on GitHub Pages and Releases"
             });
             console.log(`Deployment created: ${deployment.data.html_url}`);
