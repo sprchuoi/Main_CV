@@ -30,16 +30,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install Ngrok
-        run: |
-          wget "https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz"
-          tar -xvzf ngrok-v3-stable-linux-amd64.tgz
-          ./ngrok config add-authtoken ${{ secrets.ngrok_token }}
-
-      # - name: Install Libreoffice
-      #   run: | 
-      #     sudo apt install libreoffice
-
       - name: Build PDF file
         run: |
           chmod +x build/build.sh
@@ -68,15 +58,14 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
 
-      - name: Publish to Release page
-        uses: marvinpinto/action-automatic-releases@latest
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: false
-          title: "Latest build"
           files: |
             NguyenQuangBinh_CV.pdf
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Mark deployment in GitHub
         uses: actions/github-script@v6
